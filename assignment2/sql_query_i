@@ -1,0 +1,13 @@
+SELECT b.docid, a.docid, SUM(a.count * b.count) 
+FROM (SELECT * FROM Frequency
+      UNION
+      SELECT  'q' as docid, 'washington' as term, 1 as count 
+      UNION
+      SELECT  'q' as docid, 'taxes' as term, 1 as count
+      UNION 
+      SELECT  'q' as docid, 'treasury' as term, 1 as count 
+     ) a, Frequency b
+WHERE a.term = b.term 
+AND a.docid = 'q'
+GROUP BY a.docid, b.docid
+ORDER BY SUM(a.count * b.count);

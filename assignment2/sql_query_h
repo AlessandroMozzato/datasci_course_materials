@@ -1,0 +1,10 @@
+SELECT a.docid, b.docid, sum(a.count*b.count) FROM frequency A, frequency B
+WHERE a.term = b.term
+GROUP BY a.docid =  '10080_txt_crude' AND b.docid = '17035_txt_earn';
+
+
+
+
+
+
+

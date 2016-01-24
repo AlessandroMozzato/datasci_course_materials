@@ -1,0 +1,4 @@
+SELECT count(*) FROM (
+SELECT count(count)AS totalcount FROM frequency
+GROUP BY docid
+HAVING totalcount > 300 ) ;	
